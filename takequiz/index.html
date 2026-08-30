@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>たけクイズ</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="app">
+
+  <header class="app-header">
+    <h1 id="app-title">たけクイズ</h1>
+  </header>
+
+  <main id="screen-root">
+
+    <!-- 科目選択画面 -->
+    <section id="screen-subjects" class="screen">
+      <h2 class="screen-title">科目をえらんでね</h2>
+      <div id="subject-list" class="card-list"></div>
+    </section>
+
+    <!-- ジャンル選択画面 -->
+    <section id="screen-genres" class="screen" hidden>
+      <h2 class="screen-title" id="genre-screen-title">ジャンルをえらんでね</h2>
+      <div id="genre-list" class="card-list"></div>
+      <button class="big-back-btn" data-action="to-subjects">＜ 科目えらびに戻る</button>
+    </section>
+
+    <!-- クイズ画面 -->
+    <section id="screen-quiz" class="screen" hidden>
+      <div class="quiz-meta">
+        <span id="quiz-progress"></span>
+      </div>
+      <p id="quiz-passage" class="quiz-passage" hidden></p>
+      <p id="quiz-question" class="quiz-question"></p>
+      <div id="quiz-choices" class="choice-list"></div>
+      <p id="quiz-feedback" class="quiz-feedback" hidden></p>
+      <p id="quiz-explanation" class="quiz-explanation" hidden></p>
+      <div class="quiz-primary-actions">
+        <button id="btn-reveal" class="nav-btn primary" data-action="reveal">答えを見る</button>
+        <button id="btn-next" class="nav-btn primary" data-action="next" hidden>次へ</button>
+      </div>
+      <button id="btn-back" class="big-back-btn" data-action="prev">戻る</button>
+    </section>
+
+    <!-- 結果画面 -->
+    <section id="screen-result" class="screen" hidden>
+      <h2 class="screen-title">けっか</h2>
+      <p id="result-score" class="result-score"></p>
+      <p id="result-message" class="result-message"></p>
+      <div class="result-actions">
+        <button class="nav-btn primary" data-action="retry">もう一度</button>
+        <button class="nav-btn" data-action="to-genres">ジャンルを選び直す</button>
+        <button class="nav-btn" data-action="to-subjects">トップへ</button>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="js/storage.js"></script>
+<script src="js/quiz-engine.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

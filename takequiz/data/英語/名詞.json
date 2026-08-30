@@ -1,0 +1,342 @@
+[
+  {
+    "question": "\"Dog\"（ドッグ）の意味は？",
+    "answerText": "犬",
+    "distractorPool": [
+      "猫",
+      "本",
+      "りんご",
+      "水",
+      "友達",
+      "学校",
+      "音楽",
+      "ゲーム",
+      "時間"
+    ],
+    "choiceCount": 4,
+    "explanation": "\"Dog\"は「犬」という意味です。"
+  },
+  {
+    "question": "「犬」の英語はどれ？",
+    "answerText": "Dog（ドッグ）",
+    "distractorPool": [
+      "Cat（キャット）",
+      "Book（ブック）",
+      "Apple（アップル）",
+      "Water（ウォーター）",
+      "Friend（フレンド）",
+      "School（スクール）",
+      "Music（ミュージック）",
+      "Game（ゲーム）",
+      "Time（タイム）"
+    ],
+    "choiceCount": 4,
+    "explanation": "「犬」は英語で\"Dog\"（ドッグ）と言います。"
+  },
+  {
+    "question": "\"Cat\"（キャット）の意味は？",
+    "answerText": "猫",
+    "distractorPool": [
+      "犬",
+      "本",
+      "りんご",
+      "水",
+      "友達",
+      "学校",
+      "音楽",
+      "ゲーム",
+      "時間"
+    ],
+    "choiceCount": 4,
+    "explanation": "\"Cat\"は「猫」という意味です。"
+  },
+  {
+    "question": "「猫」の英語はどれ？",
+    "answerText": "Cat（キャット）",
+    "distractorPool": [
+      "Dog（ドッグ）",
+      "Book（ブック）",
+      "Apple（アップル）",
+      "Water（ウォーター）",
+      "Friend（フレンド）",
+      "School（スクール）",
+      "Music（ミュージック）",
+      "Game（ゲーム）",
+      "Time（タイム）"
+    ],
+    "choiceCount": 4,
+    "explanation": "「猫」は英語で\"Cat\"（キャット）と言います。"
+  },
+  {
+    "question": "\"Book\"（ブック）の意味は？",
+    "answerText": "本",
+    "distractorPool": [
+      "犬",
+      "猫",
+      "りんご",
+      "水",
+      "友達",
+      "学校",
+      "音楽",
+      "ゲーム",
+      "時間"
+    ],
+    "choiceCount": 4,
+    "explanation": "\"Book\"は「本」という意味です。"
+  },
+  {
+    "question": "「本」の英語はどれ？",
+    "answerText": "Book（ブック）",
+    "distractorPool": [
+      "Dog（ドッグ）",
+      "Cat（キャット）",
+      "Apple（アップル）",
+      "Water（ウォーター）",
+      "Friend（フレンド）",
+      "School（スクール）",
+      "Music（ミュージック）",
+      "Game（ゲーム）",
+      "Time（タイム）"
+    ],
+    "choiceCount": 4,
+    "explanation": "「本」は英語で\"Book\"（ブック）と言います。"
+  },
+  {
+    "question": "\"Apple\"（アップル）の意味は？",
+    "answerText": "りんご",
+    "distractorPool": [
+      "犬",
+      "猫",
+      "本",
+      "水",
+      "友達",
+      "学校",
+      "音楽",
+      "ゲーム",
+      "時間"
+    ],
+    "choiceCount": 4,
+    "explanation": "\"Apple\"は「りんご」という意味です。"
+  },
+  {
+    "question": "「りんご」の英語はどれ？",
+    "answerText": "Apple（アップル）",
+    "distractorPool": [
+      "Dog（ドッグ）",
+      "Cat（キャット）",
+      "Book（ブック）",
+      "Water（ウォーター）",
+      "Friend（フレンド）",
+      "School（スクール）",
+      "Music（ミュージック）",
+      "Game（ゲーム）",
+      "Time（タイム）"
+    ],
+    "choiceCount": 4,
+    "explanation": "「りんご」は英語で\"Apple\"（アップル）と言います。"
+  },
+  {
+    "question": "\"Water\"（ウォーター）の意味は？",
+    "answerText": "水",
+    "distractorPool": [
+      "犬",
+      "猫",
+      "本",
+      "りんご",
+      "友達",
+      "学校",
+      "音楽",
+      "ゲーム",
+      "時間"
+    ],
+    "choiceCount": 4,
+    "explanation": "\"Water\"は「水」という意味です。"
+  },
+  {
+    "question": "「水」の英語はどれ？",
+    "answerText": "Water（ウォーター）",
+    "distractorPool": [
+      "Dog（ドッグ）",
+      "Cat（キャット）",
+      "Book（ブック）",
+      "Apple（アップル）",
+      "Friend（フレンド）",
+      "School（スクール）",
+      "Music（ミュージック）",
+      "Game（ゲーム）",
+      "Time（タイム）"
+    ],
+    "choiceCount": 4,
+    "explanation": "「水」は英語で\"Water\"（ウォーター）と言います。"
+  },
+  {
+    "question": "\"Friend\"（フレンド）の意味は？",
+    "answerText": "友達",
+    "distractorPool": [
+      "犬",
+      "猫",
+      "本",
+      "りんご",
+      "水",
+      "学校",
+      "音楽",
+      "ゲーム",
+      "時間"
+    ],
+    "choiceCount": 4,
+    "explanation": "\"Friend\"は「友達」という意味です。"
+  },
+  {
+    "question": "「友達」の英語はどれ？",
+    "answerText": "Friend（フレンド）",
+    "distractorPool": [
+      "Dog（ドッグ）",
+      "Cat（キャット）",
+      "Book（ブック）",
+      "Apple（アップル）",
+      "Water（ウォーター）",
+      "School（スクール）",
+      "Music（ミュージック）",
+      "Game（ゲーム）",
+      "Time（タイム）"
+    ],
+    "choiceCount": 4,
+    "explanation": "「友達」は英語で\"Friend\"（フレンド）と言います。"
+  },
+  {
+    "question": "\"School\"（スクール）の意味は？",
+    "answerText": "学校",
+    "distractorPool": [
+      "犬",
+      "猫",
+      "本",
+      "りんご",
+      "水",
+      "友達",
+      "音楽",
+      "ゲーム",
+      "時間"
+    ],
+    "choiceCount": 4,
+    "explanation": "\"School\"は「学校」という意味です。"
+  },
+  {
+    "question": "「学校」の英語はどれ？",
+    "answerText": "School（スクール）",
+    "distractorPool": [
+      "Dog（ドッグ）",
+      "Cat（キャット）",
+      "Book（ブック）",
+      "Apple（アップル）",
+      "Water（ウォーター）",
+      "Friend（フレンド）",
+      "Music（ミュージック）",
+      "Game（ゲーム）",
+      "Time（タイム）"
+    ],
+    "choiceCount": 4,
+    "explanation": "「学校」は英語で\"School\"（スクール）と言います。"
+  },
+  {
+    "question": "\"Music\"（ミュージック）の意味は？",
+    "answerText": "音楽",
+    "distractorPool": [
+      "犬",
+      "猫",
+      "本",
+      "りんご",
+      "水",
+      "友達",
+      "学校",
+      "ゲーム",
+      "時間"
+    ],
+    "choiceCount": 4,
+    "explanation": "\"Music\"は「音楽」という意味です。"
+  },
+  {
+    "question": "「音楽」の英語はどれ？",
+    "answerText": "Music（ミュージック）",
+    "distractorPool": [
+      "Dog（ドッグ）",
+      "Cat（キャット）",
+      "Book（ブック）",
+      "Apple（アップル）",
+      "Water（ウォーター）",
+      "Friend（フレンド）",
+      "School（スクール）",
+      "Game（ゲーム）",
+      "Time（タイム）"
+    ],
+    "choiceCount": 4,
+    "explanation": "「音楽」は英語で\"Music\"（ミュージック）と言います。"
+  },
+  {
+    "question": "\"Game\"（ゲーム）の意味は？",
+    "answerText": "ゲーム",
+    "distractorPool": [
+      "犬",
+      "猫",
+      "本",
+      "りんご",
+      "水",
+      "友達",
+      "学校",
+      "音楽",
+      "時間"
+    ],
+    "choiceCount": 4,
+    "explanation": "\"Game\"は「ゲーム」という意味です。"
+  },
+  {
+    "question": "「ゲーム」の英語はどれ？",
+    "answerText": "Game（ゲーム）",
+    "distractorPool": [
+      "Dog（ドッグ）",
+      "Cat（キャット）",
+      "Book（ブック）",
+      "Apple（アップル）",
+      "Water（ウォーター）",
+      "Friend（フレンド）",
+      "School（スクール）",
+      "Music（ミュージック）",
+      "Time（タイム）"
+    ],
+    "choiceCount": 4,
+    "explanation": "「ゲーム」は英語で\"Game\"（ゲーム）と言います。"
+  },
+  {
+    "question": "\"Time\"（タイム）の意味は？",
+    "answerText": "時間",
+    "distractorPool": [
+      "犬",
+      "猫",
+      "本",
+      "りんご",
+      "水",
+      "友達",
+      "学校",
+      "音楽",
+      "ゲーム"
+    ],
+    "choiceCount": 4,
+    "explanation": "\"Time\"は「時間」という意味です。"
+  },
+  {
+    "question": "「時間」の英語はどれ？",
+    "answerText": "Time（タイム）",
+    "distractorPool": [
+      "Dog（ドッグ）",
+      "Cat（キャット）",
+      "Book（ブック）",
+      "Apple（アップル）",
+      "Water（ウォーター）",
+      "Friend（フレンド）",
+      "School（スクール）",
+      "Music（ミュージック）",
+      "Game（ゲーム）"
+    ],
+    "choiceCount": 4,
+    "explanation": "「時間」は英語で\"Time\"（タイム）と言います。"
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "question": "朝、学校で友達や先生に会ったときに使う英語のあいさつは何？",
+    "choices": ["Good morning（グッドモーニング）", "Good night（グッドナイト）", "Good evening（グッドイブニング）", "Goodbye（グッドバイ）"],
+    "answer": 0,
+    "explanation": "「Good morning」は「おはよう」という意味の、朝のあいさつです。"
+  },
+  {
+    "question": "昼、学校で使う「こんにちは」を表す英語のあいさつは何？",
+    "choices": ["Good afternoon（グッドアフタヌーン）", "Good morning（グッドモーニング）", "Good night（グッドナイト）", "Goodbye（グッドバイ）"],
+    "answer": 0,
+    "explanation": "「Good afternoon」は「こんにちは」という意味の、昼のあいさつです。"
+  },
+  {
+    "question": "夕方や夜、人と会ったときに使う「こんばんは」を表す英語のあいさつは何？",
+    "choices": ["Good evening（グッドイブニング）", "Good morning（グッドモーニング）", "Good afternoon（グッドアフタヌーン）", "Goodbye（グッドバイ）"],
+    "answer": 0,
+    "explanation": "「Good evening」は「こんばんは」という意味の、夕方や夜のあいさつです。"
+  },
+  {
+    "question": "寝る前に「おやすみなさい」という意味で使う英語のあいさつは何？",
+    "choices": ["Good night（グッドナイト）", "Good morning（グッドモーニング）", "Good evening（グッドイブニング）", "Goodbye（グッドバイ）"],
+    "answer": 0,
+    "explanation": "「Good night」は「おやすみなさい」という意味で、寝る前に使うあいさつです。"
+  },
+  {
+    "question": "別れるときに「さようなら」という意味で使う英語のあいさつは何？",
+    "choices": ["Goodbye（グッドバイ）", "Good morning（グッドモーニング）", "Good night（グッドナイト）", "Good afternoon（グッドアフタヌーン）"],
+    "answer": 0,
+    "explanation": "「Goodbye」は「さようなら」という意味で、別れるときに使うあいさつです。"
+  }
+]

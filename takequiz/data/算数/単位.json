@@ -1,0 +1,401 @@
+[
+  {
+    "question": "「cm²」の読み方は？",
+    "choices": [
+      "ヘクタール",
+      "平方センチメートル",
+      "平方メートル",
+      "アール"
+    ],
+    "answer": 1,
+    "explanation": "cm²は「平方センチメートル」と読みます。1cm×1cmの正方形の広さです。"
+  },
+  {
+    "question": "「m²」の読み方は？",
+    "choices": [
+      "平方メートル",
+      "平方センチメートル",
+      "アール",
+      "平方キロメートル"
+    ],
+    "answer": 0,
+    "explanation": "m²は「平方メートル」と読みます。1m×1mの正方形の広さです。"
+  },
+  {
+    "question": "「a」の読み方は？",
+    "choices": [
+      "ヘクタール",
+      "メートル",
+      "アール",
+      "リットル"
+    ],
+    "answer": 2,
+    "explanation": "aは「アール」と読みます。10m×10mの正方形の広さです。"
+  },
+  {
+    "question": "「ha」の読み方は？",
+    "choices": [
+      "ヘクタール",
+      "平方キロメートル",
+      "キロリットル",
+      "アール"
+    ],
+    "answer": 0,
+    "explanation": "haは「ヘクタール」と読みます。100m×100mの正方形の広さです。"
+  },
+  {
+    "question": "「km²」の読み方は？",
+    "choices": [
+      "平方キロメートル",
+      "アール",
+      "平方メートル",
+      "ヘクタール"
+    ],
+    "answer": 0,
+    "explanation": "km²は「平方キロメートル」と読みます。1km×1kmの正方形の広さです。"
+  },
+  {
+    "question": "1辺が1mの正方形の面積（1㎡）は、何㎠（平方センチメートル）？",
+    "choices": [
+      "1,000cm²",
+      "10,000cm²",
+      "100,000cm²",
+      "100cm²"
+    ],
+    "answer": 1,
+    "explanation": "1m²は10,000cm²です（100cm×100cm）。"
+  },
+  {
+    "question": "1aは何m²？",
+    "choices": [
+      "100m²",
+      "10m²",
+      "10,000m²",
+      "1,000m²"
+    ],
+    "answer": 0,
+    "explanation": "1a（10m×10m）は100m²です。"
+  },
+  {
+    "question": "1haは何a？",
+    "choices": [
+      "100a",
+      "10a",
+      "1,000a",
+      "10,000a"
+    ],
+    "answer": 0,
+    "explanation": "1ha（100m×100m）は100aです。"
+  },
+  {
+    "question": "1km²は何ha？",
+    "choices": [
+      "10ha",
+      "10,000ha",
+      "100ha",
+      "1,000ha"
+    ],
+    "answer": 2,
+    "explanation": "1km²は100haです。"
+  },
+  {
+    "question": "1km²は何m²？",
+    "choices": [
+      "1,000,000m²",
+      "10,000m²",
+      "100m²",
+      "100,000m²"
+    ],
+    "answer": 0,
+    "explanation": "1km²（1km×1km）は1,000,000m²です。"
+  },
+  {
+    "question": "10,000cm²は何m²？",
+    "choices": [
+      "10m²",
+      "100m²",
+      "1,000m²",
+      "1m²"
+    ],
+    "answer": 3,
+    "explanation": "10,000cm²は1m²です。"
+  },
+  {
+    "question": "100m²は何a？",
+    "choices": [
+      "10a",
+      "1,000a",
+      "1a",
+      "100a"
+    ],
+    "answer": 2,
+    "explanation": "100m²は1aです。"
+  },
+  {
+    "question": "10,000m²は何ha？",
+    "choices": [
+      "100ha",
+      "1,000ha",
+      "10ha",
+      "1ha"
+    ],
+    "answer": 3,
+    "explanation": "10,000m²は1haです。"
+  },
+  {
+    "question": "1,000,000m²は何km²？",
+    "choices": [
+      "100km²",
+      "1,000km²",
+      "1km²",
+      "10km²"
+    ],
+    "answer": 2,
+    "explanation": "1,000,000m²は1km²です。"
+  },
+  {
+    "question": "「mL」（cm³）の読み方は？",
+    "choices": [
+      "デシリットル",
+      "リットル",
+      "ミリリットル",
+      "キロリットル"
+    ],
+    "answer": 2,
+    "explanation": "mLは「ミリリットル」と読みます。1mL=1cm³（1cm×1cm×1cm）です。"
+  },
+  {
+    "question": "「dL」の読み方は？",
+    "choices": [
+      "ミリリットル",
+      "デシリットル",
+      "リットル",
+      "キロリットル"
+    ],
+    "answer": 1,
+    "explanation": "dLは「デシリットル」と読みます。"
+  },
+  {
+    "question": "「L」の読み方は？",
+    "choices": [
+      "リットル",
+      "キロリットル",
+      "デシリットル",
+      "ミリリットル"
+    ],
+    "answer": 0,
+    "explanation": "Lは「リットル」と読みます。"
+  },
+  {
+    "question": "「kL」の読み方は？",
+    "choices": [
+      "ミリリットル",
+      "デシリットル",
+      "リットル",
+      "キロリットル"
+    ],
+    "answer": 3,
+    "explanation": "kLは「キロリットル」と読みます。"
+  },
+  {
+    "question": "「m³」の読み方は？",
+    "choices": [
+      "平方メートル",
+      "リットル",
+      "立方メートル",
+      "立方センチメートル"
+    ],
+    "answer": 2,
+    "explanation": "m³は「立方メートル」と読みます。1m×1m×1mの立体の大きさです。"
+  },
+  {
+    "question": "1dL（デシリットル）は何mL（ミリリットル）？",
+    "choices": [
+      "100mL",
+      "10,000mL",
+      "1,000mL",
+      "10mL"
+    ],
+    "answer": 0,
+    "explanation": "1dLは100mLです。"
+  },
+  {
+    "question": "1L（リットル）は何mL（ミリリットル）？",
+    "choices": [
+      "100mL",
+      "10mL",
+      "1,000mL",
+      "10,000mL"
+    ],
+    "answer": 2,
+    "explanation": "1Lは1,000mLです。"
+  },
+  {
+    "question": "1kLは何L？",
+    "choices": [
+      "10,000L",
+      "10L",
+      "100L",
+      "1,000L"
+    ],
+    "answer": 3,
+    "explanation": "1kLは1,000Lです。"
+  },
+  {
+    "question": "1m³は何L？",
+    "choices": [
+      "100L",
+      "10,000L",
+      "1,000L",
+      "10L"
+    ],
+    "answer": 2,
+    "explanation": "1m³（1m×1m×1m）は1,000Lです。"
+  },
+  {
+    "question": "100mLは何dL？",
+    "choices": [
+      "1dL",
+      "100dL",
+      "10dL",
+      "1,000dL"
+    ],
+    "answer": 0,
+    "explanation": "100mLは1dLです。"
+  },
+  {
+    "question": "1,000mLは何L？",
+    "choices": [
+      "10L",
+      "1L",
+      "1,000L",
+      "100L"
+    ],
+    "answer": 1,
+    "explanation": "1,000mLは1Lです。"
+  },
+  {
+    "question": "1,000Lは何kL？",
+    "choices": [
+      "10kL",
+      "1,000kL",
+      "1kL",
+      "100kL"
+    ],
+    "answer": 2,
+    "explanation": "1,000Lは1kLです。"
+  },
+  {
+    "question": "1,000Lは何m³？",
+    "choices": [
+      "10m³",
+      "1m³",
+      "100m³",
+      "1,000m³"
+    ],
+    "answer": 1,
+    "explanation": "1,000Lは1m³です。"
+  },
+  {
+    "question": "1m（メートル）は何cm（センチメートル）？",
+    "choices": ["100cm", "10cm", "1,000cm", "10,000cm"],
+    "answer": 0,
+    "explanation": "1mは100cmです。"
+  },
+  {
+    "question": "1km（キロメートル）は何m（メートル）？",
+    "choices": ["100m", "1,000m", "10,000m", "10m"],
+    "answer": 1,
+    "explanation": "1kmは1,000mです。"
+  },
+  {
+    "question": "1L（リットル）は何dL（デシリットル）？",
+    "choices": ["10dL", "100dL", "1,000dL", "1dL"],
+    "answer": 0,
+    "explanation": "1Lは10dLです。"
+  },
+  {
+    "question": "1kg（キログラム）は何g（グラム）？",
+    "choices": ["100g", "1,000g", "10g", "10,000g"],
+    "answer": 1,
+    "explanation": "1kgは1,000gです。"
+  },
+  {
+    "question": "1t（トン）は何kg（キログラム）？",
+    "choices": ["100kg", "10,000kg", "1,000kg", "10kg"],
+    "answer": 2,
+    "explanation": "1t（トン）は1,000kgです。"
+  },
+  {
+    "question": "1時間は何分？",
+    "choices": ["100分", "60分", "24分", "30分"],
+    "answer": 1,
+    "explanation": "1時間は60分です。"
+  },
+  {
+    "question": "1分は何秒？",
+    "choices": ["100秒", "10秒", "60秒", "30秒"],
+    "answer": 2,
+    "explanation": "1分は60秒です。"
+  },
+  {
+    "question": "1時間は何秒？",
+    "choices": ["600秒", "3,600秒", "6,000秒", "360秒"],
+    "answer": 1,
+    "explanation": "1時間は60分×60秒＝3,600秒です。"
+  },
+  {
+    "question": "1日は何時間？",
+    "choices": ["12時間", "48時間", "24時間", "36時間"],
+    "answer": 2,
+    "explanation": "1日は24時間です。"
+  },
+  {
+    "question": "1年は何日？（うるう年じゃないとき）",
+    "choices": ["360日", "364日", "365日", "366日"],
+    "answer": 2,
+    "explanation": "うるう年ではない1年は365日です。うるう年は366日になります。"
+  },
+  {
+    "question": "1辺が1cmの正方形の面積（1㎠）は、何mm×何mm？",
+    "choices": ["10mm×10mm", "1mm×1mm", "100mm×100mm", "5mm×5mm"],
+    "answer": 0,
+    "explanation": "1cm＝10mmなので、1辺が1cmの正方形は10mm×10mmと同じ広さです。"
+  },
+  {
+    "question": "1ha（ヘクタール）は、1辺が何mの正方形の広さ？",
+    "choices": ["100m", "10m", "1,000m", "50m"],
+    "answer": 0,
+    "explanation": "1ha（ヘクタール）は、1辺が100mの正方形の広さ（100m×100m）です。"
+  },
+  {
+    "question": "水1L（リットル）のかさは、1辺が何cmのさいころ（立方体）と同じ？",
+    "choices": ["10cm", "1cm", "100cm", "5cm"],
+    "answer": 0,
+    "explanation": "1辺が10cmの立方体の体積は10cm×10cm×10cm＝1,000cm³で、これは水1L（1,000mL）と同じかさです。"
+  },
+  {
+    "question": "1辺が1cmのさいころの体積（1㎤）は、何mL（ミリリットル）と同じ？",
+    "choices": ["1mL", "10mL", "100mL", "0.1mL"],
+    "answer": 0,
+    "explanation": "1cm³（1立方センチメートル）は1mLと同じかさです。"
+  },
+  {
+    "question": "「k（キロ）」という言葉がつくと、もとの単位の何倍になる？（kmやkgなど）",
+    "choices": ["1,000倍", "100倍", "10倍", "10,000倍"],
+    "answer": 0,
+    "explanation": "「キロ」は1,000倍を表す言葉です。kmは1,000m、kgは1,000gのことです。"
+  },
+  {
+    "question": "「m（ミリ）」という言葉がつくと、もとの単位の何分の1になる？（mmやmLなど）",
+    "choices": ["1,000分の1", "100分の1", "10分の1", "10,000分の1"],
+    "answer": 0,
+    "explanation": "「ミリ」は1,000分の1を表す言葉です。mmは1mの1,000分の1、mLは1Lの1,000分の1です。"
+  },
+  {
+    "question": "1分間に進む道のりを「分速（ふんそく）」というけれど、1時間に進む道のりは何という？",
+    "choices": ["時速（じそく）", "秒速（びょうそく）", "日速", "週速"],
+    "answer": 0,
+    "explanation": "1時間に進む道のりを時速、1秒間に進む道のりを秒速といいます。"
+  }
+]

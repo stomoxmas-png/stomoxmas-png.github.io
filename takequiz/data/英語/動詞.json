@@ -1,0 +1,342 @@
+[
+  {
+    "question": "\"Run\"（ラン）の意味は？",
+    "answerText": "走る",
+    "distractorPool": [
+      "歩く",
+      "食べる",
+      "飲む",
+      "寝る",
+      "遊ぶ",
+      "見る",
+      "聞く",
+      "作る",
+      "好き"
+    ],
+    "choiceCount": 4,
+    "explanation": "\"Run\"は「走る」という意味です。"
+  },
+  {
+    "question": "「走る」の英語はどれ？",
+    "answerText": "Run（ラン）",
+    "distractorPool": [
+      "Walk（ウォーク）",
+      "Eat（イート）",
+      "Drink（ドリンク）",
+      "Sleep（スリープ）",
+      "Play（プレイ）",
+      "See（シー）",
+      "Listen（リッスン）",
+      "Make（メイク）",
+      "Like（ライク）"
+    ],
+    "choiceCount": 4,
+    "explanation": "「走る」は英語で\"Run\"（ラン）と言います。"
+  },
+  {
+    "question": "\"Walk\"（ウォーク）の意味は？",
+    "answerText": "歩く",
+    "distractorPool": [
+      "走る",
+      "食べる",
+      "飲む",
+      "寝る",
+      "遊ぶ",
+      "見る",
+      "聞く",
+      "作る",
+      "好き"
+    ],
+    "choiceCount": 4,
+    "explanation": "\"Walk\"は「歩く」という意味です。"
+  },
+  {
+    "question": "「歩く」の英語はどれ？",
+    "answerText": "Walk（ウォーク）",
+    "distractorPool": [
+      "Run（ラン）",
+      "Eat（イート）",
+      "Drink（ドリンク）",
+      "Sleep（スリープ）",
+      "Play（プレイ）",
+      "See（シー）",
+      "Listen（リッスン）",
+      "Make（メイク）",
+      "Like（ライク）"
+    ],
+    "choiceCount": 4,
+    "explanation": "「歩く」は英語で\"Walk\"（ウォーク）と言います。"
+  },
+  {
+    "question": "\"Eat\"（イート）の意味は？",
+    "answerText": "食べる",
+    "distractorPool": [
+      "走る",
+      "歩く",
+      "飲む",
+      "寝る",
+      "遊ぶ",
+      "見る",
+      "聞く",
+      "作る",
+      "好き"
+    ],
+    "choiceCount": 4,
+    "explanation": "\"Eat\"は「食べる」という意味です。"
+  },
+  {
+    "question": "「食べる」の英語はどれ？",
+    "answerText": "Eat（イート）",
+    "distractorPool": [
+      "Run（ラン）",
+      "Walk（ウォーク）",
+      "Drink（ドリンク）",
+      "Sleep（スリープ）",
+      "Play（プレイ）",
+      "See（シー）",
+      "Listen（リッスン）",
+      "Make（メイク）",
+      "Like（ライク）"
+    ],
+    "choiceCount": 4,
+    "explanation": "「食べる」は英語で\"Eat\"（イート）と言います。"
+  },
+  {
+    "question": "\"Drink\"（ドリンク）の意味は？",
+    "answerText": "飲む",
+    "distractorPool": [
+      "走る",
+      "歩く",
+      "食べる",
+      "寝る",
+      "遊ぶ",
+      "見る",
+      "聞く",
+      "作る",
+      "好き"
+    ],
+    "choiceCount": 4,
+    "explanation": "\"Drink\"は「飲む」という意味です。"
+  },
+  {
+    "question": "「飲む」の英語はどれ？",
+    "answerText": "Drink（ドリンク）",
+    "distractorPool": [
+      "Run（ラン）",
+      "Walk（ウォーク）",
+      "Eat（イート）",
+      "Sleep（スリープ）",
+      "Play（プレイ）",
+      "See（シー）",
+      "Listen（リッスン）",
+      "Make（メイク）",
+      "Like（ライク）"
+    ],
+    "choiceCount": 4,
+    "explanation": "「飲む」は英語で\"Drink\"（ドリンク）と言います。"
+  },
+  {
+    "question": "\"Sleep\"（スリープ）の意味は？",
+    "answerText": "寝る",
+    "distractorPool": [
+      "走る",
+      "歩く",
+      "食べる",
+      "飲む",
+      "遊ぶ",
+      "見る",
+      "聞く",
+      "作る",
+      "好き"
+    ],
+    "choiceCount": 4,
+    "explanation": "\"Sleep\"は「寝る」という意味です。"
+  },
+  {
+    "question": "「寝る」の英語はどれ？",
+    "answerText": "Sleep（スリープ）",
+    "distractorPool": [
+      "Run（ラン）",
+      "Walk（ウォーク）",
+      "Eat（イート）",
+      "Drink（ドリンク）",
+      "Play（プレイ）",
+      "See（シー）",
+      "Listen（リッスン）",
+      "Make（メイク）",
+      "Like（ライク）"
+    ],
+    "choiceCount": 4,
+    "explanation": "「寝る」は英語で\"Sleep\"（スリープ）と言います。"
+  },
+  {
+    "question": "\"Play\"（プレイ）の意味は？",
+    "answerText": "遊ぶ",
+    "distractorPool": [
+      "走る",
+      "歩く",
+      "食べる",
+      "飲む",
+      "寝る",
+      "見る",
+      "聞く",
+      "作る",
+      "好き"
+    ],
+    "choiceCount": 4,
+    "explanation": "\"Play\"は「遊ぶ」という意味です。"
+  },
+  {
+    "question": "「遊ぶ」の英語はどれ？",
+    "answerText": "Play（プレイ）",
+    "distractorPool": [
+      "Run（ラン）",
+      "Walk（ウォーク）",
+      "Eat（イート）",
+      "Drink（ドリンク）",
+      "Sleep（スリープ）",
+      "See（シー）",
+      "Listen（リッスン）",
+      "Make（メイク）",
+      "Like（ライク）"
+    ],
+    "choiceCount": 4,
+    "explanation": "「遊ぶ」は英語で\"Play\"（プレイ）と言います。"
+  },
+  {
+    "question": "\"See\"（シー）の意味は？",
+    "answerText": "見る",
+    "distractorPool": [
+      "走る",
+      "歩く",
+      "食べる",
+      "飲む",
+      "寝る",
+      "遊ぶ",
+      "聞く",
+      "作る",
+      "好き"
+    ],
+    "choiceCount": 4,
+    "explanation": "\"See\"は「見る」という意味です。"
+  },
+  {
+    "question": "「見る」の英語はどれ？",
+    "answerText": "See（シー）",
+    "distractorPool": [
+      "Run（ラン）",
+      "Walk（ウォーク）",
+      "Eat（イート）",
+      "Drink（ドリンク）",
+      "Sleep（スリープ）",
+      "Play（プレイ）",
+      "Listen（リッスン）",
+      "Make（メイク）",
+      "Like（ライク）"
+    ],
+    "choiceCount": 4,
+    "explanation": "「見る」は英語で\"See\"（シー）と言います。"
+  },
+  {
+    "question": "\"Listen\"（リッスン）の意味は？",
+    "answerText": "聞く",
+    "distractorPool": [
+      "走る",
+      "歩く",
+      "食べる",
+      "飲む",
+      "寝る",
+      "遊ぶ",
+      "見る",
+      "作る",
+      "好き"
+    ],
+    "choiceCount": 4,
+    "explanation": "\"Listen\"は「聞く」という意味です。"
+  },
+  {
+    "question": "「聞く」の英語はどれ？",
+    "answerText": "Listen（リッスン）",
+    "distractorPool": [
+      "Run（ラン）",
+      "Walk（ウォーク）",
+      "Eat（イート）",
+      "Drink（ドリンク）",
+      "Sleep（スリープ）",
+      "Play（プレイ）",
+      "See（シー）",
+      "Make（メイク）",
+      "Like（ライク）"
+    ],
+    "choiceCount": 4,
+    "explanation": "「聞く」は英語で\"Listen\"（リッスン）と言います。"
+  },
+  {
+    "question": "\"Make\"（メイク）の意味は？",
+    "answerText": "作る",
+    "distractorPool": [
+      "走る",
+      "歩く",
+      "食べる",
+      "飲む",
+      "寝る",
+      "遊ぶ",
+      "見る",
+      "聞く",
+      "好き"
+    ],
+    "choiceCount": 4,
+    "explanation": "\"Make\"は「作る」という意味です。"
+  },
+  {
+    "question": "「作る」の英語はどれ？",
+    "answerText": "Make（メイク）",
+    "distractorPool": [
+      "Run（ラン）",
+      "Walk（ウォーク）",
+      "Eat（イート）",
+      "Drink（ドリンク）",
+      "Sleep（スリープ）",
+      "Play（プレイ）",
+      "See（シー）",
+      "Listen（リッスン）",
+      "Like（ライク）"
+    ],
+    "choiceCount": 4,
+    "explanation": "「作る」は英語で\"Make\"（メイク）と言います。"
+  },
+  {
+    "question": "\"Like\"（ライク）の意味は？",
+    "answerText": "好き",
+    "distractorPool": [
+      "走る",
+      "歩く",
+      "食べる",
+      "飲む",
+      "寝る",
+      "遊ぶ",
+      "見る",
+      "聞く",
+      "作る"
+    ],
+    "choiceCount": 4,
+    "explanation": "\"Like\"は「好き」という意味です。"
+  },
+  {
+    "question": "「好き」の英語はどれ？",
+    "answerText": "Like（ライク）",
+    "distractorPool": [
+      "Run（ラン）",
+      "Walk（ウォーク）",
+      "Eat（イート）",
+      "Drink（ドリンク）",
+      "Sleep（スリープ）",
+      "Play（プレイ）",
+      "See（シー）",
+      "Listen（リッスン）",
+      "Make（メイク）"
+    ],
+    "choiceCount": 4,
+    "explanation": "「好き」は英語で\"Like\"（ライク）と言います。"
+  }
+]

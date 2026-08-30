@@ -1,0 +1,230 @@
+[
+  {
+    "question": "\"January\" は何月？",
+    "answerText": "1月",
+    "distractorPool": [
+      "2月",
+      "3月",
+      "4月",
+      "5月",
+      "6月",
+      "7月",
+      "8月",
+      "9月",
+      "10月",
+      "11月",
+      "12月"
+    ],
+    "choiceCount": 4,
+    "explanation": "\"January\"は「1月」という意味です。"
+  },
+  {
+    "question": "\"February\" は何月？",
+    "answerText": "2月",
+    "distractorPool": [
+      "1月",
+      "3月",
+      "4月",
+      "5月",
+      "6月",
+      "7月",
+      "8月",
+      "9月",
+      "10月",
+      "11月",
+      "12月"
+    ],
+    "choiceCount": 4,
+    "explanation": "\"February\"は「2月」という意味です。"
+  },
+  {
+    "question": "\"March\" は何月？",
+    "answerText": "3月",
+    "distractorPool": [
+      "1月",
+      "2月",
+      "4月",
+      "5月",
+      "6月",
+      "7月",
+      "8月",
+      "9月",
+      "10月",
+      "11月",
+      "12月"
+    ],
+    "choiceCount": 4,
+    "explanation": "\"March\"は「3月」という意味です。"
+  },
+  {
+    "question": "\"April\" は何月？",
+    "answerText": "4月",
+    "distractorPool": [
+      "1月",
+      "2月",
+      "3月",
+      "5月",
+      "6月",
+      "7月",
+      "8月",
+      "9月",
+      "10月",
+      "11月",
+      "12月"
+    ],
+    "choiceCount": 4,
+    "explanation": "\"April\"は「4月」という意味です。"
+  },
+  {
+    "question": "\"May\" は何月？",
+    "answerText": "5月",
+    "distractorPool": [
+      "1月",
+      "2月",
+      "3月",
+      "4月",
+      "6月",
+      "7月",
+      "8月",
+      "9月",
+      "10月",
+      "11月",
+      "12月"
+    ],
+    "choiceCount": 4,
+    "explanation": "\"May\"は「5月」という意味です。"
+  },
+  {
+    "question": "\"June\" は何月？",
+    "answerText": "6月",
+    "distractorPool": [
+      "1月",
+      "2月",
+      "3月",
+      "4月",
+      "5月",
+      "7月",
+      "8月",
+      "9月",
+      "10月",
+      "11月",
+      "12月"
+    ],
+    "choiceCount": 4,
+    "explanation": "\"June\"は「6月」という意味です。"
+  },
+  {
+    "question": "\"July\" は何月？",
+    "answerText": "7月",
+    "distractorPool": [
+      "1月",
+      "2月",
+      "3月",
+      "4月",
+      "5月",
+      "6月",
+      "8月",
+      "9月",
+      "10月",
+      "11月",
+      "12月"
+    ],
+    "choiceCount": 4,
+    "explanation": "\"July\"は「7月」という意味です。"
+  },
+  {
+    "question": "\"August\" は何月？",
+    "answerText": "8月",
+    "distractorPool": [
+      "1月",
+      "2月",
+      "3月",
+      "4月",
+      "5月",
+      "6月",
+      "7月",
+      "9月",
+      "10月",
+      "11月",
+      "12月"
+    ],
+    "choiceCount": 4,
+    "explanation": "\"August\"は「8月」という意味です。"
+  },
+  {
+    "question": "\"September\" は何月？",
+    "answerText": "9月",
+    "distractorPool": [
+      "1月",
+      "2月",
+      "3月",
+      "4月",
+      "5月",
+      "6月",
+      "7月",
+      "8月",
+      "10月",
+      "11月",
+      "12月"
+    ],
+    "choiceCount": 4,
+    "explanation": "\"September\"は「9月」という意味です。"
+  },
+  {
+    "question": "\"October\" は何月？",
+    "answerText": "10月",
+    "distractorPool": [
+      "1月",
+      "2月",
+      "3月",
+      "4月",
+      "5月",
+      "6月",
+      "7月",
+      "8月",
+      "9月",
+      "11月",
+      "12月"
+    ],
+    "choiceCount": 4,
+    "explanation": "\"October\"は「10月」という意味です。"
+  },
+  {
+    "question": "\"November\" は何月？",
+    "answerText": "11月",
+    "distractorPool": [
+      "1月",
+      "2月",
+      "3月",
+      "4月",
+      "5月",
+      "6月",
+      "7月",
+      "8月",
+      "9月",
+      "10月",
+      "12月"
+    ],
+    "choiceCount": 4,
+    "explanation": "\"November\"は「11月」という意味です。"
+  },
+  {
+    "question": "\"December\" は何月？",
+    "answerText": "12月",
+    "distractorPool": [
+      "1月",
+      "2月",
+      "3月",
+      "4月",
+      "5月",
+      "6月",
+      "7月",
+      "8月",
+      "9月",
+      "10月",
+      "11月"
+    ],
+    "choiceCount": 4,
+    "explanation": "\"December\"は「12月」という意味です。"
+  }
+]
