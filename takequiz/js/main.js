@@ -6,12 +6,31 @@
     result: document.getElementById('screen-result'),
   };
 
+  const SUBJECT_THEME = {
+    国語: 'kokugo',
+    算数: 'sansu',
+    理科: 'rika',
+    社会: 'shakai',
+    英語: 'eigo',
+  };
+
+  function applyTheme(subject) {
+    const slug = SUBJECT_THEME[subject];
+    if (slug) {
+      document.body.dataset.theme = slug;
+    } else {
+      delete document.body.dataset.theme;
+    }
+  }
+
   const el = {
+    appHeader: document.querySelector('.app-header'),
     subjectList: document.getElementById('subject-list'),
     genreScreenTitle: document.getElementById('genre-screen-title'),
     genreList: document.getElementById('genre-list'),
     quizProgress: document.getElementById('quiz-progress'),
     quizPassage: document.getElementById('quiz-passage'),
+    quizImage: document.getElementById('quiz-image'),
     quizQuestion: document.getElementById('quiz-question'),
     quizChoices: document.getElementById('quiz-choices'),
     quizFeedback: document.getElementById('quiz-feedback'),
@@ -23,6 +42,21 @@
     resultMessage: document.getElementById('result-message'),
     resultToGenresBtn: document.querySelector('#screen-result [data-action="to-genres"]'),
   };
+
+  let feedbackTimer = null;
+
+  function showFeedbackToast() {
+    clearTimeout(feedbackTimer);
+    el.quizFeedback.classList.add('show');
+    feedbackTimer = setTimeout(() => {
+      el.quizFeedback.classList.remove('show');
+    }, 1400);
+  }
+
+  function hideFeedbackToast() {
+    clearTimeout(feedbackTimer);
+    el.quizFeedback.classList.remove('show');
+  }
 
   const state = {
     subjects: null, // { 国語: [ジャンル...], ... }
@@ -37,6 +71,10 @@
     Object.entries(screens).forEach(([key, node]) => {
       node.hidden = key !== name;
     });
+    el.appHeader.hidden = name !== 'subjects';
+    if (name === 'subjects') {
+      applyTheme(null);
+    }
   }
 
   async function loadSubjects() {
@@ -60,6 +98,10 @@
     Object.keys(state.subjects).forEach((subject) => {
       const btn = document.createElement('button');
       btn.className = 'card-btn';
+      const slug = SUBJECT_THEME[subject];
+      if (slug) {
+        btn.classList.add(`card-btn--${slug}`);
+      }
       btn.textContent = subject;
       btn.addEventListener('click', () => openSubject(subject));
       el.subjectList.appendChild(btn);
@@ -74,6 +116,7 @@
 
   function openSubject(subject) {
     state.currentSubject = subject;
+    applyTheme(subject);
     el.genreScreenTitle.textContent = `${subject}のジャンルをえらんでね`;
     renderGenres(subject);
     showScreen('genres');
@@ -113,6 +156,7 @@
     state.randomScope = null;
     state.currentSubject = subject;
     state.currentGenre = genre;
+    applyTheme(subject);
     let questions;
     try {
       questions = await loadGenreQuestions(subject, genre);
@@ -147,6 +191,7 @@
     state.randomScope = subjectFilter || null;
     state.currentSubject = subjectFilter || 'ランダム';
     state.currentGenre = 'ランダム';
+    applyTheme(subjectFilter);
     state.session = window.QuizEngine.createQuizSession(allQuestions);
     showScreen('quiz');
     renderQuizQuestion();
@@ -165,6 +210,15 @@
       el.quizPassage.hidden = false;
     } else {
       el.quizPassage.hidden = true;
+    }
+
+    if (q.image) {
+      el.quizImage.src = q.image;
+      el.quizImage.alt = '問題の画像';
+      el.quizImage.hidden = false;
+    } else {
+      el.quizImage.hidden = true;
+      el.quizImage.removeAttribute('src');
     }
 
     el.quizQuestion.textContent = q.question;
@@ -237,9 +291,9 @@
       el.quizFeedback.textContent = correct ? '正解！' : 'まちがい！';
       el.quizFeedback.classList.toggle('correct', correct);
       el.quizFeedback.classList.toggle('wrong', !correct);
-      el.quizFeedback.hidden = false;
+      showFeedbackToast();
     } else {
-      el.quizFeedback.hidden = true;
+      hideFeedbackToast();
     }
 
     if (item.revealed) {

@@ -1,5 +1,6 @@
 (function () {
   const SET_SIZE = 5;
+  const MAX_CHOICES = 3;
 
   function shuffle(array) {
     const result = array.slice();
@@ -14,14 +15,26 @@
     return Array.isArray(question.choices) && question.choices.length > 0;
   }
 
+  // 選択肢の並び順をシャッフルし、正解を含めて最大 MAX_CHOICES 個に絞る
+  function shuffleChoiceOrder(question) {
+    const correctIndex = question.answer;
+    const otherIndices = question.choices
+      .map((_, i) => i)
+      .filter((i) => i !== correctIndex);
+    const pickCount = Math.min(otherIndices.length, MAX_CHOICES - 1);
+    const order = shuffle([correctIndex, ...shuffle(otherIndices).slice(0, pickCount)]);
+    return {
+      ...question,
+      choices: order.map((i) => question.choices[i]),
+      answer: order.indexOf(correctIndex),
+    };
+  }
+
   // distractorPool を持つ問題は、毎回ランダムに選択肢を組み立てる
   // （正解以外の選択肢は「どれでもいい」ので、遊ぶたびに違う選択肢が出る）
   function materializeQuestion(question) {
-    if (isChoiceQuestion(question)) {
-      return question;
-    }
     if (Array.isArray(question.distractorPool) && question.answerText) {
-      const wantCount = Math.max(1, (question.choiceCount || 4) - 1);
+      const wantCount = Math.max(1, Math.min(question.choiceCount || MAX_CHOICES, MAX_CHOICES) - 1);
       const distractors = shuffle(question.distractorPool).slice(0, wantCount);
       const choices = shuffle([question.answerText, ...distractors]);
       return {
@@ -29,6 +42,9 @@
         choices,
         answer: choices.indexOf(question.answerText),
       };
+    }
+    if (isChoiceQuestion(question)) {
+      return shuffleChoiceOrder(question);
     }
     return question;
   }
