@@ -24,6 +24,11 @@
     <!-- ジャンル選択画面 -->
     <section id="screen-genres" class="screen" hidden>
       <h2 class="screen-title" id="genre-screen-title">ジャンルをえらんでね</h2>
+      <div id="count-selector" class="count-selector">
+        <button class="count-btn" data-count="3">3問</button>
+        <button class="count-btn selected" data-count="5">5問</button>
+        <button class="count-btn" data-count="10">10問</button>
+      </div>
       <div id="genre-list" class="card-list"></div>
       <button class="big-back-btn" data-action="to-subjects">＜ 科目えらびに戻る</button>
     </section>
@@ -35,6 +40,7 @@
       </div>
       <p id="quiz-passage" class="quiz-passage" hidden></p>
       <img id="quiz-image" class="quiz-image" alt="" hidden>
+      <p id="quiz-symbol" class="quiz-symbol" hidden></p>
       <p id="quiz-question" class="quiz-question"></p>
       <div id="quiz-choices" class="choice-list"></div>
       <p id="quiz-feedback" class="quiz-feedback"></p>
@@ -48,8 +54,10 @@
 
     <!-- 結果画面 -->
     <section id="screen-result" class="screen" hidden>
+      <div id="confetti-layer" class="confetti-layer" aria-hidden="true"></div>
       <h2 class="screen-title">けっか</h2>
       <p id="result-score" class="result-score"></p>
+      <p id="result-time" class="result-time"></p>
       <p id="result-message" class="result-message"></p>
       <div class="result-actions">
         <button class="nav-btn primary" data-action="retry">もう一度</button>
@@ -63,6 +71,7 @@
 
 <script src="js/storage.js"></script>
 <script src="js/quiz-engine.js"></script>
+<script src="js/sound.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

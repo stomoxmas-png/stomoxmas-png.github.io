@@ -132,6 +132,13 @@ html, body {
   color: var(--color-primary-dark);
 }
 
+.card-btn .best-times {
+  font-size: 0.7rem;
+  font-weight: normal;
+  color: var(--color-text);
+  opacity: 0.75;
+}
+
 /* 科目選択カードは常にそれぞれの色で表示する（背景は白のまま） */
 .card-btn--kokugo { border-color: #e5484d; color: #c53030; }
 .card-btn--sansu { border-color: #3b82f6; color: #1d4ed8; }
@@ -202,6 +209,21 @@ html, body {
   border-radius: 8px;
   object-fit: contain;
   background: #fff;
+}
+
+.quiz-symbol {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto 12px;
+  padding: 8px 32px;
+  border: 2px solid var(--color-border);
+  border-radius: 8px;
+  background: #fff;
+  text-align: center;
+  font-size: 3.2rem;
+  font-weight: bold;
+  color: var(--color-primary-dark);
 }
 
 .quiz-question {
@@ -287,6 +309,62 @@ html, body {
   color: var(--color-primary-dark);
 }
 
+/* 出題数セレクター（3・5・10問） */
+.count-selector {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.count-btn {
+  padding: 8px 18px;
+  font-size: 0.95rem;
+  font-weight: bold;
+  border: 2px solid var(--color-border);
+  border-radius: 999px;
+  background: var(--color-card-bg);
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.count-btn.selected {
+  border-color: var(--color-primary);
+  background: var(--color-tint);
+  color: var(--color-primary-dark);
+}
+
+/* 満点のときの紙吹雪演出 */
+.confetti-layer {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 30;
+}
+
+.confetti-piece {
+  position: absolute;
+  top: -16px;
+  width: 8px;
+  height: 14px;
+  opacity: 0.9;
+  animation-name: confetti-fall;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+}
+
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(115vh) rotate(540deg);
+    opacity: 0.9;
+  }
+}
+
 .quiz-explanation {
   background: var(--color-card-bg);
   border: 2px solid var(--color-border);
@@ -340,6 +418,13 @@ html, body {
   font-weight: bold;
   color: var(--color-primary-dark);
   margin: 16px 0 8px;
+}
+
+.result-time {
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--color-text);
+  margin: 0 0 8px;
 }
 
 .result-message {

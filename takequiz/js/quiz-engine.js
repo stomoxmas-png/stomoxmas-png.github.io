@@ -49,8 +49,8 @@
     return question;
   }
 
-  function createQuizSession(allQuestions) {
-    const count = Math.min(SET_SIZE, allQuestions.length);
+  function createQuizSession(allQuestions, questionCount) {
+    const count = Math.min(questionCount || SET_SIZE, allQuestions.length);
     const picked = shuffle(allQuestions).slice(0, count);
 
     return {
