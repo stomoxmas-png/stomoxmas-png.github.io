@@ -48,5 +48,59 @@
     return stats;
   }
 
-  window.QuizStorage = { getGenreStats, saveGenreResult };
+  const PERFECT_KEY = `${PREFIX}:perfect:cleared`;
+  const PERFECT_WRONG_KEY = `${PREFIX}:perfect:wrong`;
+
+  function getIdSet(key) {
+    const raw = localStorage.getItem(key);
+    if (!raw) return [];
+    try {
+      const parsed = JSON.parse(raw);
+      return Array.isArray(parsed) ? parsed : [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  // 「全問正解を目指せ」で正解済みの問題ID一覧
+  function getPerfectCleared() {
+    return getIdSet(PERFECT_KEY);
+  }
+
+  // 「全問正解を目指せ」で前回不正解だった問題ID一覧
+  function getPerfectWrong() {
+    return getIdSet(PERFECT_WRONG_KEY);
+  }
+
+  function markPerfectCleared(id) {
+    const cleared = new Set(getPerfectCleared());
+    cleared.add(id);
+    localStorage.setItem(PERFECT_KEY, JSON.stringify([...cleared]));
+
+    const wrong = new Set(getPerfectWrong());
+    if (wrong.delete(id)) {
+      localStorage.setItem(PERFECT_WRONG_KEY, JSON.stringify([...wrong]));
+    }
+  }
+
+  function markPerfectWrong(id) {
+    const wrong = new Set(getPerfectWrong());
+    wrong.add(id);
+    localStorage.setItem(PERFECT_WRONG_KEY, JSON.stringify([...wrong]));
+  }
+
+  function resetPerfectCleared() {
+    localStorage.removeItem(PERFECT_KEY);
+    localStorage.removeItem(PERFECT_WRONG_KEY);
+  }
+
+  window.QuizStorage = {
+    getGenreStats,
+    saveGenreResult,
+    getPerfectCleared,
+    getPerfectWrong,
+    markPerfectCleared,
+    markPerfectWrong,
+    resetPerfectCleared,
+  };
 })();

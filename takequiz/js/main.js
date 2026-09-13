@@ -4,6 +4,7 @@
     genres: document.getElementById('screen-genres'),
     quiz: document.getElementById('screen-quiz'),
     result: document.getElementById('screen-result'),
+    perfect: document.getElementById('screen-perfect'),
   };
 
   const SUBJECT_THEME = {
@@ -45,12 +46,19 @@
     resultMessage: document.getElementById('result-message'),
     resultToGenresBtn: document.querySelector('#screen-result [data-action="to-genres"]'),
     confettiLayer: document.getElementById('confetti-layer'),
+    btnPerfectTop: document.getElementById('btn-perfect-top'),
+    perfectRemaining: document.getElementById('perfect-remaining'),
+    perfectList: document.getElementById('perfect-list'),
+    perfectComplete: document.getElementById('perfect-complete'),
+    perfectConfettiLayer: document.getElementById('perfect-confetti-layer'),
+    btnPerfectRetry: document.getElementById('btn-perfect-retry'),
   };
 
   const CONFETTI_COLORS = ['#ff8a3d', '#e5484d', '#3b82f6', '#22a55e', '#f2a900', '#ec4899'];
 
-  function spawnConfetti() {
-    el.confettiLayer.innerHTML = '';
+  function spawnConfetti(layer) {
+    const target = layer || el.confettiLayer;
+    target.innerHTML = '';
     const pieceCount = 60;
     for (let i = 0; i < pieceCount; i++) {
       const piece = document.createElement('span');
@@ -59,7 +67,7 @@
       piece.style.background = CONFETTI_COLORS[Math.floor(Math.random() * CONFETTI_COLORS.length)];
       piece.style.animationDuration = `${1.8 + Math.random() * 1.2}s`;
       piece.style.animationDelay = `${Math.random() * 0.6}s`;
-      el.confettiLayer.appendChild(piece);
+      target.appendChild(piece);
     }
   }
 
@@ -85,9 +93,13 @@
     session: null,
     isRandom: false,
     randomScope: null, // ランダムの対象を科目内に絞る場合はその科目名、全科目対象なら null
-    questionCount: 5, // ジャンル選択画面で選ぶ出題数（3・5・10）
+    questionCount: 5, // ジャンル選択画面で選ぶ出題数（3・5・10、または「なんでもいい」を表す 'random'）
     quizQuestionCount: 5, // 今回のセッション開始時に使われた出題数タイア（ベストタイムの記録単位）
     quizStartedAt: null, // 今回のセッションの開始時刻（Date.now()）
+    mode: 'normal', // 'normal' | 'perfect'（「全問正解を目指せ」で1問だけ表示中かどうか）
+    perfectAllQuestions: null, // 全科目・全ジャンルの問題をフラットにした一覧（{id, subject, genre, question}[]）
+    perfectQueue: [], // 「全問正解を目指せTOP」に表示中の未クリア問題の並び
+    perfectCurrentId: null, // 単問表示中の問題ID
   };
 
   function formatTime(ms) {
@@ -105,7 +117,7 @@
       node.hidden = key !== name;
     });
     el.appHeader.hidden = name !== 'subjects';
-    if (name === 'subjects') {
+    if (name === 'subjects' || name === 'perfect') {
       applyTheme(null);
     }
   }
@@ -157,9 +169,20 @@
     el.subjectList.appendChild(randomBtn);
   }
 
+  const RANDOM_COUNT_CHOICES = [3, 5, 10];
+
+  // 出題数の選択値から実際の出題数を決める（「なんでもいい」なら3・5・10からランダムに選ぶ）
+  function resolveQuestionCount() {
+    if (state.questionCount === 'random') {
+      return RANDOM_COUNT_CHOICES[Math.floor(Math.random() * RANDOM_COUNT_CHOICES.length)];
+    }
+    return state.questionCount;
+  }
+
   function updateCountSelectorUI() {
     el.countSelector.querySelectorAll('.count-btn').forEach((btn) => {
-      btn.classList.toggle('selected', Number(btn.dataset.count) === state.questionCount);
+      const value = btn.dataset.count === 'random' ? 'random' : Number(btn.dataset.count);
+      btn.classList.toggle('selected', value === state.questionCount);
     });
   }
 
@@ -200,7 +223,7 @@
         }
       }
 
-      btn.addEventListener('click', () => startQuiz(subject, genre, state.questionCount));
+      btn.addEventListener('click', () => startQuiz(subject, genre, resolveQuestionCount()));
       el.genreList.appendChild(btn);
     });
 
@@ -210,14 +233,14 @@
     genreOmakaseBtn.addEventListener('click', () => {
       const genres = state.subjects[subject];
       const pick = genres[Math.floor(Math.random() * genres.length)];
-      startQuiz(subject, pick, state.questionCount);
+      startQuiz(subject, pick, resolveQuestionCount());
     });
     el.genreList.appendChild(genreOmakaseBtn);
 
     const randomBtn = document.createElement('button');
     randomBtn.className = 'card-btn card-btn-random';
     randomBtn.textContent = `${subject}のランダム`;
-    randomBtn.addEventListener('click', () => startRandomQuiz(subject, state.questionCount));
+    randomBtn.addEventListener('click', () => startRandomQuiz(subject, resolveQuestionCount()));
     el.genreList.appendChild(randomBtn);
   }
 
@@ -271,13 +294,155 @@
     renderQuizQuestion();
   }
 
+  function shuffleArray(array) {
+    const result = array.slice();
+    for (let i = result.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [result[i], result[j]] = [result[j], result[i]];
+    }
+    return result;
+  }
+
+  // 同じ科目の問題が3問以上連続しないように並び替える（極力・完全には避けられない場合もある）
+  function arrangeAvoidingLongRuns(items) {
+    const arr = shuffleArray(items);
+    for (let i = 2; i < arr.length; i++) {
+      if (arr[i].subject === arr[i - 1].subject && arr[i - 1].subject === arr[i - 2].subject) {
+        const swapIndex = arr.findIndex((it, j) => j > i && it.subject !== arr[i - 1].subject);
+        if (swapIndex !== -1) {
+          [arr[i], arr[swapIndex]] = [arr[swapIndex], arr[i]];
+        }
+      }
+    }
+    return arr;
+  }
+
+  // 全科目・全ジャンルの問題をフラットな一覧にする（「全問正解を目指せ」用）
+  async function loadAllQuestionsFlat() {
+    if (state.perfectAllQuestions) return state.perfectAllQuestions;
+    const subjects = await loadSubjects();
+    const pairs = [];
+    Object.entries(subjects).forEach(([subject, genres]) => {
+      genres.forEach((genre) => pairs.push([subject, genre]));
+    });
+    const lists = await Promise.all(
+      pairs.map(([subject, genre]) =>
+        loadGenreQuestions(subject, genre).then((questions) =>
+          questions.map((question, idx) => ({
+            id: `${subject}::${genre}::${idx}`,
+            subject,
+            genre,
+            question,
+          }))
+        )
+      )
+    );
+    state.perfectAllQuestions = lists.flat();
+    return state.perfectAllQuestions;
+  }
+
+  async function openPerfectTop() {
+    let flat;
+    try {
+      flat = await loadAllQuestionsFlat();
+    } catch (err) {
+      alert('問題データの読み込みに失敗しました');
+      return;
+    }
+    const cleared = new Set(window.QuizStorage.getPerfectCleared());
+    const remaining = flat.filter((item) => !cleared.has(item.id));
+    state.perfectQueue = arrangeAvoidingLongRuns(remaining);
+    renderPerfectList(false);
+    showScreen('perfect');
+  }
+
+  function renderPerfectList(justCompleted) {
+    const total = state.perfectAllQuestions ? state.perfectAllQuestions.length : 0;
+    const remaining = state.perfectQueue.length;
+
+    if (remaining === 0) {
+      el.perfectRemaining.hidden = true;
+      el.perfectList.hidden = true;
+      el.perfectList.innerHTML = '';
+      el.perfectComplete.hidden = false;
+      if (justCompleted) {
+        window.QuizSound.playPerfect();
+        spawnConfetti(el.perfectConfettiLayer);
+      }
+      return;
+    }
+
+    el.perfectComplete.hidden = true;
+    el.perfectList.hidden = false;
+    el.perfectRemaining.hidden = false;
+    el.perfectRemaining.textContent = `のこり ${remaining}問 / ぜんぶで ${total}問`;
+
+    const wrongIds = new Set(window.QuizStorage.getPerfectWrong());
+
+    el.perfectList.innerHTML = '';
+    state.perfectQueue.forEach((item) => {
+      const btn = document.createElement('button');
+      btn.className = 'perfect-item-btn';
+
+      const tag = document.createElement('span');
+      tag.className = 'perfect-item-tag';
+      tag.textContent = `${item.subject}・${item.genre}`;
+      btn.appendChild(tag);
+
+      if (wrongIds.has(item.id)) {
+        const wrongBadge = document.createElement('span');
+        wrongBadge.className = 'perfect-item-wrong-badge';
+        wrongBadge.textContent = '前回不正解';
+        btn.appendChild(wrongBadge);
+      }
+
+      const question = document.createElement('span');
+      question.className = 'perfect-item-question';
+      question.textContent = item.question.question;
+      btn.appendChild(question);
+
+      btn.addEventListener('click', () => startPerfectQuestion(item));
+      el.perfectList.appendChild(btn);
+    });
+  }
+
+  function startPerfectQuestion(item) {
+    state.mode = 'perfect';
+    state.perfectCurrentId = item.id;
+    state.currentSubject = item.subject;
+    state.currentGenre = item.genre;
+    applyTheme(item.subject);
+    state.session = window.QuizEngine.createQuizSession([item.question], 1);
+    showScreen('quiz');
+    renderQuizQuestion();
+  }
+
+  function finishPerfectQuestion() {
+    const session = state.session;
+    const item = session.current();
+    if (session.isCorrect(item)) {
+      window.QuizStorage.markPerfectCleared(state.perfectCurrentId);
+      state.perfectQueue = state.perfectQueue.filter((q) => q.id !== state.perfectCurrentId);
+    } else {
+      window.QuizStorage.markPerfectWrong(state.perfectCurrentId);
+    }
+    state.mode = 'normal';
+    state.perfectCurrentId = null;
+    renderPerfectList(true);
+    showScreen('perfect');
+  }
+
   function renderQuizQuestion() {
     const session = state.session;
     const item = session.current();
     const q = item.question;
     const isChoice = session.isChoiceQuestion(item);
 
-    el.quizProgress.textContent = `${session.index + 1} / ${session.total()}問`;
+    if (state.mode === 'perfect') {
+      el.quizProgress.textContent = `${state.currentSubject}・${state.currentGenre}`;
+    } else {
+      el.quizProgress.textContent = `${session.index + 1} / ${session.total()}問`;
+    }
 
     if (q.passage) {
       el.quizPassage.textContent = q.passage;
@@ -392,7 +557,11 @@
       el.btnReveal.hidden = true;
       if (session.canAdvance()) {
         el.btnNext.hidden = false;
-        el.btnNext.textContent = session.isLast() ? 'けっかを見る' : '次へ';
+        if (state.mode === 'perfect') {
+          el.btnNext.textContent = 'リストにもどる';
+        } else {
+          el.btnNext.textContent = session.isLast() ? 'けっかを見る' : '次へ';
+        }
       } else {
         el.btnNext.hidden = true;
       }
@@ -404,7 +573,7 @@
     }
 
     el.btnBack.disabled = false;
-    el.btnBack.textContent = 'ジャンル選びに戻る';
+    el.btnBack.textContent = state.mode === 'perfect' ? 'リストにもどる' : 'ジャンル選びに戻る';
   }
 
   function handleReveal() {
@@ -421,6 +590,10 @@
 
   function handleNext() {
     const session = state.session;
+    if (state.mode === 'perfect') {
+      finishPerfectQuestion();
+      return;
+    }
     if (session.isLast()) {
       finishQuiz();
       return;
@@ -430,6 +603,13 @@
   }
 
   function handlePrev() {
+    if (state.mode === 'perfect') {
+      state.mode = 'normal';
+      state.perfectCurrentId = null;
+      renderPerfectList(false);
+      showScreen('perfect');
+      return;
+    }
     if (state.isRandom) {
       if (state.randomScope) {
         renderGenres(state.randomScope);
@@ -477,7 +657,7 @@
   function bindEvents() {
     el.countSelector.querySelectorAll('.count-btn').forEach((btn) => {
       btn.addEventListener('click', () => {
-        state.questionCount = Number(btn.dataset.count);
+        state.questionCount = btn.dataset.count === 'random' ? 'random' : Number(btn.dataset.count);
         updateCountSelectorUI();
       });
     });
@@ -490,6 +670,17 @@
       .querySelector('[data-action="to-subjects"]')
       .addEventListener('click', () => showScreen('subjects'));
 
+    el.btnPerfectTop.addEventListener('click', () => openPerfectTop());
+
+    document.getElementById('screen-perfect')
+      .querySelector('[data-action="to-subjects"]')
+      .addEventListener('click', () => showScreen('subjects'));
+
+    el.btnPerfectRetry.addEventListener('click', () => {
+      window.QuizStorage.resetPerfectCleared();
+      openPerfectTop();
+    });
+
     document.getElementById('screen-result')
       .querySelectorAll('[data-action]')
       .forEach((btn) => {
@@ -497,9 +688,9 @@
           const action = btn.dataset.action;
           if (action === 'retry') {
             if (state.isRandom) {
-              startRandomQuiz(state.randomScope, state.randomScope ? state.questionCount : undefined);
+              startRandomQuiz(state.randomScope, state.randomScope ? resolveQuestionCount() : undefined);
             } else {
-              startQuiz(state.currentSubject, state.currentGenre, state.questionCount);
+              startQuiz(state.currentSubject, state.currentGenre, resolveQuestionCount());
             }
           } else if (action === 'to-genres') {
             renderGenres(state.currentSubject);

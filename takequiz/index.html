@@ -19,6 +19,7 @@
     <section id="screen-subjects" class="screen">
       <h2 class="screen-title">科目をえらんでね</h2>
       <div id="subject-list" class="card-list"></div>
+      <button id="btn-perfect-top" class="perfect-cta-btn">全問正解を目指せ！</button>
     </section>
 
     <!-- ジャンル選択画面 -->
@@ -28,6 +29,7 @@
         <button class="count-btn" data-count="3">3問</button>
         <button class="count-btn selected" data-count="5">5問</button>
         <button class="count-btn" data-count="10">10問</button>
+        <button class="count-btn" data-count="random">おまかせ</button>
       </div>
       <div id="genre-list" class="card-list"></div>
       <button class="big-back-btn" data-action="to-subjects">＜ 科目えらびに戻る</button>
@@ -50,6 +52,19 @@
         <button id="btn-next" class="nav-btn primary" data-action="next" hidden>次へ</button>
       </div>
       <button id="btn-back" class="quiz-back-btn" data-action="prev">戻る</button>
+    </section>
+
+    <!-- 全問正解を目指せ画面 -->
+    <section id="screen-perfect" class="screen" hidden>
+      <h2 class="screen-title">全問正解を目指せTOP</h2>
+      <p id="perfect-remaining" class="perfect-remaining"></p>
+      <div id="perfect-list" class="perfect-list"></div>
+      <div id="perfect-complete" class="perfect-complete" hidden>
+        <div id="perfect-confetti-layer" class="confetti-layer" aria-hidden="true"></div>
+        <p class="perfect-complete-message">🎉 パーフェクト！</p>
+        <button id="btn-perfect-retry" class="nav-btn primary">もう一回やる</button>
+      </div>
+      <button class="big-back-btn" data-action="to-subjects">＜ トップへ戻る</button>
     </section>
 
     <!-- 結果画面 -->
