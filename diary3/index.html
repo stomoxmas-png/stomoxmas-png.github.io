@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>今日の日記</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #f5f7fa; color: #333;
+    font-family: "Hiragino Sans", "Yu Gothic", sans-serif;
+    font-size: 16px; line-height: 1.7; }
+  main { max-width: 600px; margin: 0 auto; padding: 20px 14px 60px; }
+  h1 { text-align: center; font-size: 24px; margin: 0 0 16px; }
+  .box { background: #fff; border: 1px solid #d8dee6; border-radius: 10px; padding: 14px; margin-bottom: 14px; }
+  label { display: block; font-weight: bold; margin-top: 12px; }
+  .today { font-weight: bold; font-size: 18px; text-align: center; }
+  .q1 { color: #2f6f9f; } .q2 { color: #b5532f; } .q3 { color: #2f7d3f; }
+  input, textarea { width: 100%; font: inherit; border: 2px solid #ddd; border-radius: 10px; padding: 8px; }
+  textarea { height: 64px; }
+  button.save { display: block; width: 100%; margin-top: 16px; font: inherit; font-weight: bold; font-size: 17px;
+    background: #3b6ea5; color: #fff; border: none; border-radius: 8px; padding: 10px; cursor: pointer; }
+  .count { text-align: center; margin: 22px 0 10px; font-weight: bold; }
+  .date { font-weight: bold; display: flex; justify-content: space-between; align-items: center; }
+  .date button { font: inherit; font-size: 14px; background: #eee; border: none; border-radius: 8px; padding: 2px 10px; cursor: pointer; }
+  .item { margin: 6px 0 0; white-space: pre-wrap; word-break: break-word; }
+  .tag { font-weight: bold; margin-right: 6px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>今日の日記</h1>
+
+  <form class="box" id="form">
+    <div class="today" id="today"></div>
+
+    <label for="fact" class="q1">① 今日あったこと（事実）</label>
+    <textarea id="fact" required></textarea>
+
+    <label for="feel" class="q2">② どう思ったか（気持ち）</label>
+    <textarea id="feel" required></textarea>
+
+    <label for="why" class="q3">③ なぜそう思ったか（理由）</label>
+    <textarea id="why" required></textarea>
+
+    <button type="submit" class="save">記録する</button>
+  </form>
+
+  <div class="count" id="count"></div>
+  <div id="list"></div>
+</main>
+
+<script>
+(function () {
+  var KEY = "diary3-entries-v1";
+  var $ = function (id) { return document.getElementById(id); };
+
+  function load() {
+    try { return JSON.parse(localStorage.getItem(KEY)) || []; } catch (e) { return []; }
+  }
+  function save(list) {
+    try { localStorage.setItem(KEY, JSON.stringify(list)); }
+    catch (e) { alert("保存できませんでした"); }
+  }
+  function today() {
+    var d = new Date();
+    return d.getFullYear() + "-" + ("0" + (d.getMonth() + 1)).slice(-2) + "-" + ("0" + d.getDate()).slice(-2);
+  }
+
+  var entries = load();
+
+  function addLine(box, cls, tag, text) {
+    var p = document.createElement("p");
+    p.className = "item";
+    var t = document.createElement("span");
+    t.className = "tag " + cls;
+    t.textContent = tag;
+    p.appendChild(t);
+    p.appendChild(document.createTextNode(text));
+    box.appendChild(p);
+  }
+
+  function render() {
+    var sorted = entries.slice().sort(function (a, b) {
+      return a.date < b.date ? 1 : a.date > b.date ? -1 : b.id - a.id;
+    });
+    $("count").textContent = sorted.length ? "全部で " + sorted.length + " 件" : "最初の1件を書いてみよう";
+    var list = $("list");
+    list.innerHTML = "";
+    sorted.forEach(function (en) {
+      var box = document.createElement("div");
+      box.className = "box";
+      var head = document.createElement("div");
+      head.className = "date";
+      var d = document.createElement("span");
+      d.textContent = en.date;
+      var del = document.createElement("button");
+      del.type = "button";
+      del.textContent = "削除";
+      del.onclick = function () {
+        if (confirm("この日記を削除しますか？")) {
+          entries = entries.filter(function (x) { return x.id !== en.id; });
+          save(entries);
+          render();
+        }
+      };
+      head.appendChild(d);
+      head.appendChild(del);
+      box.appendChild(head);
+      addLine(box, "q1", "事実", en.fact);
+      addLine(box, "q2", "気持ち", en.feel);
+      addLine(box, "q3", "理由", en.why);
+      list.appendChild(box);
+    });
+  }
+
+  function showToday() {
+    var d = new Date();
+    $("today").textContent = d.getFullYear() + "年" + (d.getMonth() + 1) + "月" + d.getDate() + "日";
+  }
+  showToday();
+  $("form").addEventListener("submit", function (ev) {
+    ev.preventDefault();
+    entries.push({
+      id: Date.now(),
+      date: today(),
+      fact: $("fact").value.trim(),
+      feel: $("feel").value.trim(),
+      why: $("why").value.trim()
+    });
+    save(entries);
+    $("fact").value = $("feel").value = $("why").value = "";
+    showToday();
+    render();
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>
